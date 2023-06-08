@@ -3,31 +3,47 @@
 const path = require('path');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 
-
 const nextConfig = {
+  reactStrictMode: true,
+  swcMinify: true,
   images: {
     domains: ['api.dicebear.com', 'xsgames.co'],
   },
-  reactStrictMode: true,
-  plugins: [
-    new CopyWebpackPlugin({
-      patterns: [
-        {
-          from: path.join(__dirname, './node_modules/pdfjs-dist/build/pdf.worker.min.js'),
-          to: path.join(__dirname, 'dist'),
-        },
+  modularizeImports: {
+    '@mui/material': {
+      transform: '@mui/material/{{member}}',
+    },
+    '@mui/icons-material': {
+      transform: '@mui/icons-material/{{member}}',
+    },
+    '@mui/lab': {
+      transform: '@mui/lab/{{member}}',
+    },
+  },
+  /*plugins: [
+        new CopyWebpackPlugin({
+          patterns: [
+            {
+              from: path.join(
+                __dirname,
+                './node_modules/pdfjs-dist/build/pdf.worker.min.js',
+              ),
+              to: path.join(__dirname, 'dist'),
+            },
+          ],
+        }),
       ],
-    }),
+      entry: {
+        main: './src/index.tsx',
+        'pdf.worker': path.join(
+          __dirname,
+          './node_modules/pdfjs-dist/build/pdf.worker.min.js',
+        ),
+      },
+      output: {
+        path: path.join(__dirname, 'dist'),
+        filename: '[name].bundle.js',
+      },*/
+};
 
-  ],
-  entry: {
-    main: './src/index.tsx',
-    'pdf.worker': path.join(__dirname, './node_modules/pdfjs-dist/build/pdf.worker.min.js'),
-  },
-  output: {
-    path: path.join(__dirname, 'dist'),
-    filename: '[name].bundle.js'
-  },
-}
-
-module.exports = nextConfig
+module.exports = nextConfig;

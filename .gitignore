@@ -4,6 +4,11 @@
 /node_modules
 /.pnp
 .pnp.js
+.env.*
+
+
+# JetBrains IDE files
+.idea/
 
 # testing
 /coverage
@@ -27,6 +32,18 @@ yarn-error.log*
 
 # local env files
 .env
+.env.development.local
+.env.production.local
+.env.local
 
 # vercel
 .vercel
+
+# typescript
+*.tsbuildinfo
+next-env.d.ts
+/.husky/
+/.env.local
+/.env.development.local
+/.env.production.local
+/prisma/.env.development
