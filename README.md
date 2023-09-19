@@ -18,7 +18,8 @@
 
 
 ## Tech
-- Nextjs
+- Nodejs
+- React Js
 - tailwind css
 - Redux toolkit
 - joi validation
