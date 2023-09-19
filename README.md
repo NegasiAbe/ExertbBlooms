@@ -54,6 +54,7 @@ Install my-project with npm
 ## 🛠 Tools
 
 Next JS , 
+React js
 Tailwind css ,
 Redux toolkit (for state management),
 MongoDB, 
